@@ -3,102 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Information Page</title>
-<style>
-
-	#container{
-           display: grid;
-           grid-template-columns: repeat(4,1fr);
-           grid-template-rows: auto;
-           gap: 20px;
-           text-align: center;
-           width: 95%;
-           margin: auto;
-           /* border: 1px solid red; */
-           gap: 30px;
-           margin-bottom: 50px;
-        }
-        #container > div > img{
-            width: 280px;
-            height: 350px;
-        }  
-        #container > div{
-            /* border: 1px solid green; */
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        }  
-        #container > div > h3{
-            width: 280px;
-            text-align: center;
-            margin: auto;
-            margin-top: 15px;
-        }
-        #container > div >p{
-            width: 200px;
-            margin: auto;
-            margin-top: 8px;
-           margin-top: 15px;
-           font-weight: 300;
-        }
-        #header{
-            text-align: center;
-            /* margin-top: 30px; */
-            margin-bottom: 50px;
-            font-size: 50px;
-            color: brown;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-</style>
+<!--From Boostrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>	
 <body>
-	<h1 id="header">Trending Now</h1>
-    <div id="container"></div>
+	<h1>Info Page</h1>
 </body>
-<script>
 
-    let url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0c552b0b008713fd6c79147b47f0ffb6";
-
-    fetch(url)
-    .then(function(res){
-        let data = res.json();
-        // console.log(res);
-        return data;
-    })
-    .then(function(res){
-        let data = res.results;
-        console.log(data);
-        display(data);
-    })
-    .catch(function(err){
-        console.log(err);
-        alert("Data Not Found....");
-    })
-
-    let image = "https://image.tmdb.org/t/p/w500";
-
-    function display(data){
-        let container = document.getElementById("container");
-        container.innerHTML = "";
-
-        data.forEach(function(elm){
-            let div = document.createElement("div");
-
-            let img = document.createElement("img");
-            img.src =`${image}${elm.poster_path}`;
-
-            let name = document.createElement("h3");
-            name.innerText = elm.title;
-
-            let date = document.createElement("p");
-            date.innerText = `Release Date : ${elm.release_date}`;
-
-            let imdb = document.createElement("p");
-            imdb.innerText = `IMDB : ${elm.vote_average}`;
-            imdb.style.marginBottom = "15px";
-
-            div.append(img,name,date,imdb);
-            container.append(div);
-        })
-    }
-</script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
 </html>
