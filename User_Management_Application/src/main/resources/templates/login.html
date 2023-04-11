@@ -9,7 +9,42 @@ th:replace="base::Layout(~{::section})">
 </head>
 <body>
 
-	<section><h1>Login Page</h1></section>
+	<section>
+
+		<div class="container p-5">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Login Page</div>
+
+						<div th:if="${param.error}" class="alert alert-danger">
+							Invalid username & Password</div>
+
+						<div th:if="${param.logout}" class="alert alert-success">
+							Logout Sucessfully</div>
+
+						<div class="card-body">
+							<form action="/login" method="post">
+
+								<div class="mb-3">
+									<label>Enter Email</label> <input type="text" name="username"
+										class="form-control">
+								</div>
+
+
+								<div class="mb-3">
+									<label>Enter Password</label> <input type="text"
+										name="password" class="form-control">
+								</div>
+								<button class="btn btn-dark col-md-12">Login</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
 	
 </body>
 </html>

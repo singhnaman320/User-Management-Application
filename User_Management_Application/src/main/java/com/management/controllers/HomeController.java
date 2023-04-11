@@ -22,11 +22,4 @@ public class HomeController {
 		
 		return "login";
 	}
-	
-	@GetMapping("/info")
-	public String info() {
-		
-		return "info";
-	}
-	
 }
