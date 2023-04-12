@@ -8,4 +8,6 @@ import com.management.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
+	// check if user is present or not
+	public boolean existsByEmail(String email);
 }

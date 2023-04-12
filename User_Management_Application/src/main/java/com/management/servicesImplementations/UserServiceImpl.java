@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public User createUser(User user) throws UserNotFoundException {
-		// TODO Auto-generated method stub
 		
 		if(user != null) {
 			
@@ -26,6 +25,13 @@ public class UserServiceImpl implements UserService{
 		else 
 			
 			throw new UserNotFoundException("Facing problem in creating new user");
+	}
+
+	@Override
+	public boolean checkEmailPresence(String email) throws UserNotFoundException {
+		
+		return userRepository.existsByEmail(email);
+		
 	}
 
 }

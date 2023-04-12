@@ -1,4 +1,6 @@
 package com.management.controllers;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,24 +45,37 @@ public class HomeController {
 	/* name="" must be same as used in register */
 	
 	@PostMapping("/createUser")
-	public String saveUser(@ModelAttribute User user) throws UserNotFoundException {
+	public String saveUserHandler(@ModelAttribute User user, HttpSession session) throws UserNotFoundException {
 		
+		// HttpSession session is part of servlet used to show something on frontend for some time
 		//System.out.println(user);
 		
-		User saveThisUser = userService.createUser(user);
+		boolean result = userService.checkEmailPresence(user.getEmail());
 		
-		if(saveThisUser != null) {
+		if(result) {
 			
-			System.out.println("User details saved successfully");
+			session.setAttribute("message", "User already exist with given email Id");
+			
+			
+			//System.out.println("User already exist with given email");
 			
 		}else {
 			
-			System.out.println("Server timeout..! Unable to save user in database");
+			User saveThisUser = userService.createUser(user);
+			
+			if(saveThisUser != null) {
+				
+				session.setAttribute("message", "User details saved successfully");
+				
+			}else {
+				
+				session.setAttribute("message", "Server timeout..! Unable to save user in database");
+			}
 		}
 		
 		/*
  		use redirect here. otherwise same data will be inserted as we refresh base page on browser
 		 */
-		return "redirect:/register";
+		return "register";
 	}
 }
