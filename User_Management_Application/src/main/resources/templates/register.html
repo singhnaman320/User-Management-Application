@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-
 <!-- important -->
-<html lang="en" xmlns:th="http://www.thymeLeaf.org"
-th:replace="base::Layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
 <head>
-<meta charset="UTF-8">
-<title>SignUp</title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 
 </head>
 <body>
-	
 	<section>
-	
-	<div class="container p-3">
+
+		<div class="container p-3">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
 					<div class="card">
 						<div class="card-header text-center fs-4">Register Page</div>
 
-						<!-- To show given message on frontend -->
+						<!-- show message in frontend -->
+						
 						<th:block th:if="${session.message}">
 							<p class="text-center fs-4 text-success">[[${session.message}]]</p>
 							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
 						</th:block>
-						
-						<!-- name="" must be same as used in controller -->
+
+						<!--name="" must be same as entity variable-->
 
 						<div class="card-body">
 							<form action="createUser" method="post">
@@ -49,7 +48,7 @@ th:replace="base::Layout(~{::section})">
 									<label>Enter Password</label> <input type="text"
 										name="password" class="form-control">
 								</div>
-								<button class="btn btn-dark col-md-12">Register</button>
+								<button class="btn btn-primary col-md-12">Register</button>
 							</form>
 						</div>
 					</div>
@@ -57,7 +56,12 @@ th:replace="base::Layout(~{::section})">
 			</div>
 
 		</div>
+
+
+
 	</section>
-	
+
+
+
 </body>
 </html>

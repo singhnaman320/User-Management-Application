@@ -76,6 +76,6 @@ public class HomeController {
 		/*
  		use redirect here. otherwise same data will be inserted as we refresh base page on browser
 		 */
-		return "register";
+		return "redirect:/register";
 	}
 }
