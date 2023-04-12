@@ -1,12 +1,14 @@
 package com.management.servicesImplementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.management.entities.User;
 import com.management.exceptions.UserNotFoundException;
 import com.management.repositories.UserRepository;
 import com.management.services.UserService;
 
+@Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired
