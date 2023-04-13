@@ -10,4 +10,6 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
 	// check if user is present or not
 	public boolean existsByEmail(String email);
+	
+	public User findByEmail(String email);
 }
