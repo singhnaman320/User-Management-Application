@@ -17,13 +17,18 @@ th:replace="base::layout(~{::section})">
 					<div class="card">
 						<div class="card-header text-center fs-4">Login Page</div>
 
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=--=-=-=-=--=-=-==-==-=-=--=-=--===-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-->
+
 						<div th:if="${param.error}" class="alert alert-danger">
-							Invalid username & Password</div>
+							please check for Invalid username or Password</div>
 
 						<div th:if="${param.logout}" class="alert alert-success">
 							Logout Sucessfully</div>
 
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=--=-=-=-=--=-=-==-==-=-=--=-=--===-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-->
+
 						<div class="card-body">
+						
 							<form action="/login" method="post">
 
 								<div class="mb-3">

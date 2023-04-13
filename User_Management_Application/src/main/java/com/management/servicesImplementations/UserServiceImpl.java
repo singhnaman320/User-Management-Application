@@ -1,6 +1,7 @@
 package com.management.servicesImplementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.management.entities.User;
@@ -14,10 +15,16 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	@Override
 	public User createUser(User user) throws UserNotFoundException {
 		
 		if(user != null) {
+			
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+			user.setRole("ROLE_USER");
 			
 			User saveUser= userRepository.save(user);
 			return saveUser;
