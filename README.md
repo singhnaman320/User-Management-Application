@@ -50,6 +50,7 @@ The main features developed in this application are as follows:</p>
 </tbody>
 </table>
 
+
 <hr>
 
 <h2>Application Structure:</h2>
