@@ -12,7 +12,6 @@ The main features developed in this application are as follows:</p>
 <h4>[] User Module  :</h4>
 <hr>
 
-
 <h2>Tech-Stacks and Tools:</h2>
 <table width = 100%>
 <tbody>
